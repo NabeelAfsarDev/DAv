@@ -30,3 +30,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# WebUI Builds
+tmp/
+
+# WebUI dependencies
+node_modules/
+bower_components/
+
