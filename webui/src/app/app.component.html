@@ -1,11 +1,4 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
 
 <style>
   :host {
@@ -294,13 +287,14 @@
     }
   }
 </style>
-
 <!-- Toolbar -->
 <app-nav-bar></app-nav-bar>
 
 
 <div class="content" role="main">
-<app-login-body></app-login-body>
+  <router-outlet></router-outlet>
+  <!-- <app-login-body></app-login-body>
+  <app-menu-body></app-menu-body> -->
 
 
 

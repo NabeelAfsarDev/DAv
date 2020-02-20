@@ -10,9 +10,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule , Routes } from '@angular/router';
 import { MenuBodyComponent } from './menu-body/menu-body.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', component: LoginBodyComponent },
+const appRoutes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
+
+      {
+        path: 'login',
+        component:LoginBodyComponent,
+      },
+      {
+        path:'menu',
+        component:MenuBodyComponent,
+      }
+
 ];
 
 @NgModule({
@@ -25,7 +34,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes,
+      {enableTracing:true}
+      ),
   ],
   providers: [
     MenuServiceService
