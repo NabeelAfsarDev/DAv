@@ -9,6 +9,7 @@ import { MenuServiceService }  from './services/menu-service.service'
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule , Routes } from '@angular/router';
 import { MenuBodyComponent } from './menu-body/menu-body.component';
+import { SortingBodyComponent } from './sorting-body/sorting-body.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
       {
         path:'menu',
         component:MenuBodyComponent,
+      },
+      {
+        path:'sorting',
+        component:SortingBodyComponent,
       }
 
 ];
@@ -30,7 +35,10 @@ const appRoutes: Routes = [
     NavBarComponent,
     LoginBodyComponent,
     FooterComponent,
-    MenuBodyComponent
+    MenuBodyComponent,
+    SortingBodyComponent,
+    
+
   ],
   imports: [
     BrowserModule,
