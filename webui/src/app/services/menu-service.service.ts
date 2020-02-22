@@ -16,7 +16,7 @@ export class MenuServiceService {
   ) { }
 
   getMenuItems():Observable<any[]>{
-  const localHostUrl = 'http://localhost:8080';
+  const localHostUrl = 'https://springmvctemplate.cfapps.io/getPokemon';
   const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
