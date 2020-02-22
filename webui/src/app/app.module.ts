@@ -11,6 +11,7 @@ import { RouterModule , Routes } from '@angular/router';
 import { MenuBodyComponent } from './menu-body/menu-body.component';
 import { SortingBodyComponent } from './sorting-body/sorting-body.component';
 
+
 const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
 

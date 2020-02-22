@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ColumnObject} from '../classes/column-object';
 import { MenuServiceService } from '../services/menu-service.service';
+import { min } from 'rxjs/operators';
+//import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-sorting-body',
@@ -27,6 +30,34 @@ export class SortingBodyComponent implements OnInit {
     this.columns[0].height = Math.floor(Math.random()*200);
   }
 
+  sleep(milliseconds):void {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
+
+  timeoutFunc(start, end):void{
+    //don't lose element 0 height
+    
+    let temp_height = this.columns[end].height;
+
+    //assign opacity
+    this.columns[start].opacity = 0.5;
+    this.columns[start + 1].opacity = 0.5;
+
+    //execute time out
+   //try 1: window.setTimeout(function blank(){alert('hello')},10000);
+    //try 2:
+      this.sleep(3000);
+      debugger;
+      console.log('sleep worked');
+    //finish swap
+    this.columns[end].height = this.columns[start].height;
+    this.columns[start].height = temp_height;
+  }
+
   selectionSort():void{
     let minimum = 0;
     let current = 0;
@@ -40,9 +71,11 @@ export class SortingBodyComponent implements OnInit {
           }
         }
         if(current != minimum){
-          temp_height =  this.columns[current].height;
-          this.columns[current].height = this.columns[minimum].height;
-          this.columns[minimum].height = temp_height;
+          //temp_height =  this.columns[current].height;
+          //this.timeoutFunc(current,minimum);
+          this.timeoutFunc(current,minimum);
+          //this.columns[current].height = this.columns[minimum].height;
+         // this.columns[minimum].height = temp_height;
 
 
         }
