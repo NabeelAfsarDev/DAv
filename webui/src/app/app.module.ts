@@ -29,6 +29,8 @@ const appRoutes: Routes = [
 
 ];
 
+//declarations
+
 @NgModule({
   declarations: [
     AppComponent,

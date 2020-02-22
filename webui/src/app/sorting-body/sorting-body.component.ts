@@ -18,7 +18,7 @@ export class SortingBodyComponent implements OnInit {
     for(var i = 0;i<loopNumber;i++){
       this.columns.push(new ColumnObject(Math.floor(Math.random()*200),
       this.colorName[Math.floor(Math.random()*100)],
-      90/loopNumber));
+      90/loopNumber, 1)); //by default opacity set to 1 = full color
     }
     console.log(this.columns);
   }
@@ -49,6 +49,8 @@ export class SortingBodyComponent implements OnInit {
     }
 
   }
+
+ 
 
   testHttp():void{
     this.menuService.getMenuItems().subscribe(data=>{
