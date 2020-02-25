@@ -17,7 +17,7 @@ export class SortingBodyComponent implements OnInit {
    public columns:ColumnObject[]=[];
 
   ngOnInit(): void {
-    let loopNumber = 10;
+    let loopNumber = 300;
     for(var i = 0;i<loopNumber;i++){
       this.columns.push(new ColumnObject(Math.floor(Math.random()*200),
       this.colorName[Math.floor(Math.random()*100)],
@@ -50,7 +50,7 @@ export class SortingBodyComponent implements OnInit {
     //execute time out
    //try 1: window.setTimeout(function blank(){alert('hello')},10000);
     //try 2:
-      this.sleep(3000);
+    //  this.sleep(3000);
       debugger;
       console.log('sleep worked');
     //finish swap
