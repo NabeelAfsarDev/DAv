@@ -1,10 +1,16 @@
 package DAv.Features.LoginAuth.Domain;
 
+import java.sql.PreparedStatement;
+
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+import static java.sql.Statement.RETURN_GENERATED_KEYS;
+
 
 public class DavRepository {
 	private final JdbcTemplate jdbcTemplate;
@@ -17,15 +23,28 @@ public class DavRepository {
 		// need to research prepared statement setter
 		return  (User) jdbcTemplate.query("SELECT * FROM tblUser WHERE UserId = ?",new Object[]{id},extractor);
 	}
-//	
-//	public void create() {
-//		
-//	}
-//	
-//	public void update() {
-//		
-//	}
-//	
+	
+	public void createNewUser(String username, String password) {
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		
+		jdbcTemplate.update( item -> {
+			PreparedStatement statement = item.prepareStatement(
+					"INSERT INTO tblUser (Username, Password) Values(?,?,?)",RETURN_GENERATED_KEYS
+					);
+			statement.setString(1,username);
+			statement.setString(2,password);
+			return statement;
+				
+		},keyHolder);
+	}
+	
+	public void update(Integer id,String username, String password) {
+		
+		jdbcTemplate.update("UPDATE tblUser SET Username =  ? Password = ? WHERE id = ?",
+				username, password, id);
+		
+	}
+	
 //	public void delete() {
 //		
 //	}
