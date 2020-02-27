@@ -29,10 +29,11 @@ public class DavRepository {
 		
 		jdbcTemplate.update( item -> {
 			PreparedStatement statement = item.prepareStatement(
-					"INSERT INTO tblUser (Username, Password) Values(?,?,?)",RETURN_GENERATED_KEYS
+					"INSERT INTO tblUser (Username, Password) Values(?,?)",RETURN_GENERATED_KEYS
 					);
 			statement.setString(1,username);
 			statement.setString(2,password);
+			
 			return statement;
 				
 		},keyHolder);

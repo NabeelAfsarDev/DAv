@@ -1,0 +1,5 @@
+applications:
+- name: Dav
+  host: Dav
+  memory: 1G
+  path: build/libs/DAv-0.0.1-SNAPSHOT.jar
